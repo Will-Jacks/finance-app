@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import postBill from "../../api/postBill";
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
     const [title, setTitle] = useState('');
     const [value, setValue] = useState(0);
     const [description, setDescription] = useState('');
@@ -14,7 +15,7 @@ const Form = ({ onSubmit }) => {
             description,
             isPaid
         }
-        onSubmit(formData);
+        postBill(formData);
     }
 
     return (
@@ -32,7 +33,7 @@ const Form = ({ onSubmit }) => {
                 <input type="text" placeholder="Descrição da sua conta" value={description} onChange={(e) => setDescription(e.target.value)} />
 
                 <label htmlFor="">Pago</label>
-                <select value={isPaid} onChange={(e) => setIsPaid(e.target.value === "true")}>
+                <select value={isPaid} onChange={(e) => setIsPaid(e.target.value)}>
                     <option value="false">Não</option>
                     <option value="true">Sim</option>
                 </select>

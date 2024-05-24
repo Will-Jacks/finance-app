@@ -16,7 +16,7 @@ const Bill = () => {
 
     useEffect(()=> {
         renderBills();
-    }, []);
+    }, [dados]); // Toda vez que houver uma adição ou uma exclusão de uma Bill será refletido na tela
 
     const handleClick = (id)=> {
         console.log("Excluindo conta de ID: " + id);
