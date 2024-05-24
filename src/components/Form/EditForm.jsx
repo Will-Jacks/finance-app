@@ -1,26 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const Form = ({ onSubmit }) => {
+const EditForm = ({ onSubmit }) => {
     const [title, setTitle] = useState('');
     const [value, setValue] = useState(0);
     const [description, setDescription] = useState('');
     const [isPaid, setIsPaid] = useState(false);
+    const [id, setId] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         const formData = {
             title,
             value,
             description,
-            isPaid
+            isPaid,
+            id
         }
         onSubmit(formData);
     }
-
+    
     return (
         <>
-            <h1>Crie sua conta</h1>
+            <h1>Edite sua conta</h1>
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="">Título</label>
@@ -44,4 +45,4 @@ const Form = ({ onSubmit }) => {
     )
 }
 
-export default Form;
+export default EditForm;
