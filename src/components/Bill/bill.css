@@ -1,0 +1,21 @@
+.container-bills {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-element {
+    border: 1px solid green;
+    margin: 10px;
+}
+
+.wrap-title-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons-edit-trash {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}

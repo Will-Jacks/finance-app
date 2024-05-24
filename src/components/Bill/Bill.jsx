@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import getBills from "../api/getBills";
-import deleteBill from "../api/deleteBill";
-import putBill from "../api/putBill";
+import getBills from "../../api/getBills";
+import deleteBill from "../../api/deleteBill";
+import putBill from "../../api/putBill";
+import './bill.css';
 
 /* eslint-disable react/prop-types */
 const Bill = () => {
 
-    const url = "http://localhost:8080/bills/all"; // Get
+    const url = "http://192.168.0.19:8080/bills/all"; // Get
     const [dados, setDados] = useState([]);
     const [editingBill, setEditingBill] = useState(null);
 
@@ -46,23 +47,27 @@ const Bill = () => {
 
 
     return (
-        <>
+        <div className="container-bills">
             {dados.length > 0 ? (
-                <ul>
+                <>
                     {dados.map((dado, index) => (
-                        <li key={index}>
-                            <h2>
-                                {dado.title}
-                                <button onClick={() => handleClick(dado.id)}>Excluir</button>
-                                <button onClick={() => handleEditClick(dado)}>Editar</button> {/* Essa parte que eu quero implementar a lógica de edição */}
-                            </h2>
+                        <div key={index} className="bill-element">
+                            <div className="wrap-title-buttons">
+                                <h2>{dado.title}</h2>
+                                <div className="icons-edit-trash">
+                                    <button onClick={() => handleClick(dado.id)}>Excluir</button>
+                                    <button onClick={() => handleEditClick(dado)}>Editar</button>
+                                </div>
+
+                            </div>
+
                             <h4>
                                 {'R$: ' + dado.value}
                             </h4>
                             <h5>{dado.description}</h5>
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </>
             ) : (
                 <p>Nenhuma conta a ser exibida no momento</p>
             )}
@@ -110,7 +115,7 @@ const Bill = () => {
                     <button type="submit">Confirmar alterações</button>
                 </form>
             )}
-        </>
+        </div>
     )
 }
 
