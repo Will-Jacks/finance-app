@@ -1,6 +1,7 @@
 import './App.css'
-import Bill from './components/Bill';
-import Form from './components/Form/Form';
+import Bill from './components/Bill/Bill';
+import Header from './components/Header/Header';
+/* import Form from './components/Form/Form'; */
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-      <h1>Contas</h1>
+      <Header />
       <Bill /> {/* Renderiza as Bills */}
 {/* 
       <Form /> Realiza a criação de Bills 

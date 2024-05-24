@@ -3,6 +3,8 @@ import getBills from "../../api/getBills";
 import deleteBill from "../../api/deleteBill";
 import putBill from "../../api/putBill";
 import './bill.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 /* eslint-disable react/prop-types */
 const Bill = () => {
@@ -55,8 +57,9 @@ const Bill = () => {
                             <div className="wrap-title-buttons">
                                 <h2>{dado.title}</h2>
                                 <div className="icons-edit-trash">
-                                    <button onClick={() => handleClick(dado.id)}>Excluir</button>
-                                    <button onClick={() => handleEditClick(dado)}>Editar</button>
+                                    
+                                    <button onClick={() => handleClick(dado.id)}><FontAwesomeIcon icon={faPencil} /></button>
+                                    <button onClick={() => handleEditClick(dado)}><FontAwesomeIcon icon={faTrash} /></button>
                                 </div>
 
                             </div>
