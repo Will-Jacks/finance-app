@@ -1,5 +1,5 @@
 const deleteBill = async (id) => {
-    const url = `http://localhost:8080/bills/delete/${id}`;
+    const url = `http://192.168.0.19:8080/bills/delete/${id}`;
     try {
         const response = await fetch(url, {
             method: 'DELETE',
