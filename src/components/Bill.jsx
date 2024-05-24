@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import getBills from "../api/getBills";
+import deleteBill from "../api/deleteBill";
 
 /* eslint-disable react/prop-types */
 const Bill = () => {
@@ -17,6 +18,11 @@ const Bill = () => {
         renderBills();
     }, []);
 
+    const handleClick = (id)=> {
+        console.log("Excluindo conta de ID: " + id);
+        deleteBill(id);
+    }
+
     return (
         <>
             {dados.length > 0 ? (
@@ -25,6 +31,7 @@ const Bill = () => {
                         <li key={index}>
                             <h2>
                                 {dado.title}
+                                <button onClick={()=> handleClick(dado.id)}>Excluir</button>
                             </h2>
                             <h4>
                                 {'R$: ' + dado.value}
@@ -34,7 +41,7 @@ const Bill = () => {
                     ))}
                 </ul>
             ) : (
-                <p></p>
+                <p>Nenhuma conta a ser exibida no momento</p>
             )}
         </>
     )

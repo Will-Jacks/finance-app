@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 const Form = ({ onSubmit }) => {
@@ -7,14 +8,12 @@ const Form = ({ onSubmit }) => {
     const [isPaid, setIsPaid] = useState(false);
 
     const handleSubmit = () => {
-        /* e.preventDefault(); */
         const formData = {
             title,
             value,
             description,
             isPaid
         }
-
         onSubmit(formData);
     }
 
