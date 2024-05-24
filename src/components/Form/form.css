@@ -1,7 +1,6 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    
 }
 
 .field-wrapper {
@@ -11,7 +10,7 @@
 }
 
 .field-wrapper > input {
-    width: 300px;
+    max-width: 300px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid rgba(0,0,0,0.3);

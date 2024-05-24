@@ -2,7 +2,12 @@ const Header = () => {
 
     return (
         <>
-            <h1>
+            <h1 style={
+                {
+                    display: 'flex',
+                    justifyContent:'center'
+                }
+            }>
                 Contas
             </h1>
         </>

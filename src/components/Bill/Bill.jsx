@@ -3,8 +3,10 @@ import getBills from "../../api/getBills";
 import deleteBill from "../../api/deleteBill";
 import putBill from "../../api/putBill";
 import './bill.css';
+import '../Form/form.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 
 /* eslint-disable react/prop-types */
 const Bill = () => {
@@ -57,9 +59,9 @@ const Bill = () => {
                             <div className="wrap-title-buttons">
                                 <h2>{dado.title}</h2>
                                 <div className="icons-edit-trash">
-                                    
-                                    <button onClick={() => handleClick(dado.id)}><FontAwesomeIcon icon={faPencil} /></button>
-                                    <button onClick={() => handleEditClick(dado)}><FontAwesomeIcon icon={faTrash} /></button>
+
+                                    <button onClick={() => handleEditClick(dado)}><FontAwesomeIcon icon={faPencil} /></button>
+                                    <button onClick={() => handleClick(dado.id)}><FontAwesomeIcon icon={faTrash} /></button>
                                 </div>
 
                             </div>
@@ -76,46 +78,63 @@ const Bill = () => {
             )}
 
             {editingBill && (
-                <form onSubmit={handleEditSubmit}>
-                    <label>
-                        Título:
+                <form onSubmit={handleEditSubmit} className="form-container">
+
+                    <div className="field-wrapper">
+                        <label>
+                            Título:
+                        </label>
                         <input
                             type="text"
                             name="title"
                             value={editingBill.title}
                             onChange={handleEditChange}
                         />
-                    </label>
-                    <label>
-                        Valor:
+                    </div>
+
+                    <div className="field-wrapper">
+                        <label>
+                            Valor:
+
+                        </label>
                         <input
                             type="number"
                             name="value"
                             value={editingBill.value}
                             onChange={handleEditChange}
                         />
-                    </label>
-                    <label>
-                        Descrição:
+                    </div>
+
+                    <div className="field-wrapper">
+                        <label>
+                            Descrição:
+
+                        </label>
                         <input
                             type="text"
                             name="description"
                             value={editingBill.description}
                             onChange={handleEditChange}
                         />
-                    </label>
-                    <label>
-                        Pago:
+                    </div>
+
+                    <div className="field-wrapper">
+                        <label>
+                            Pago:
+
+                        </label>
                         <select
                             name="isPaid"
                             value={editingBill.isPaid}
                             onChange={handleEditChange}
+                            className="select-input"
                         >
                             <option value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>
-                    </label>
-                    <button type="submit">Confirmar alterações</button>
+                    </div>
+
+                    <button type="submit" className="btn-submit">Confirmar alterações</button>
                 </form>
             )}
         </div>

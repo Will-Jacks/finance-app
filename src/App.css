@@ -6,3 +6,14 @@
 }
 
 
+.wrapper-app-align {
+
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.icon-fa-plus {
+  margin: 10px;
+  width: 100px;
+  height: 30px;
+}
