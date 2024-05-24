@@ -10,9 +10,9 @@ function App() {
     <>
       <h1>Contas</h1>
       <Bill /> {/* Renderiza as Bills */}
-
-      <Form /> {/* Realiza a criação de Bills */}
-
+{/* 
+      <Form /> Realiza a criação de Bills 
+ */}
     </>
   )
 }
