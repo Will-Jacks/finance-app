@@ -4,7 +4,7 @@ import getBills from "../../api/getBills";
 const SumBills = () => {
     const [totalBillValue, setTotalBillValue] = useState(0);
 
-    const url = "http://192.168.0.19:3000/bills/all";
+    const url = "http://192.168.0.19:8080/bills/all";
     const response = async () => {
         const data = await getBills(url);
         const totalValue = data.reduce((accumulator, currentBill) => {

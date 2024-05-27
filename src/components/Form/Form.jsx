@@ -15,7 +15,7 @@ const Form = () => {
             description,
             isPaid
         }
-        postBill(formData);
+        postBill(formData, 1); // Vai ter que implementar uma lógica que ao logar, o ID do usuário venha pra cá
     }
 
     return (

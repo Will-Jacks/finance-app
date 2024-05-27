@@ -38,13 +38,17 @@ const Bill = () => {
         const { name, value } = e.target;
         setEditingBill({
             ...editingBill,
-            [name]: value
+            [name]: value,
+            user: {
+                id: 1 // O esquema tá aqui. Tenho que alterar aqui pra mudar a Bill do usuário
+                //Obrigatório passar o ID do usuário em questão para mudar a Bill
+            }
         });
     }
 
     const handleEditSubmit = async (e) => {
         e.preventDefault();
-        await putBill(editingBill);
+        await putBill(editingBill, editingBill.id); // Aqui tem que ser o ID da Bill
         setEditingBill(null);
         renderBills();
     };

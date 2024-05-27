@@ -1,5 +1,5 @@
-const putBill = async (bill) => {
-    const url = "http://192.168.0.19:8080/bills/update";
+const putBill = async (bill, billId) => {
+    const url = `http://192.168.0.19:8080/bills/update/${billId}`; // ID da bill que vai ser alterada
 
     return fetch(url, {
         method: 'PUT',
