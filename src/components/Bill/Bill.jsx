@@ -11,12 +11,12 @@ import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 /* eslint-disable react/prop-types */
 const Bill = () => {
 
-    const url = "http://192.168.0.19:8080/bills/all"; // Get
+    const url = "http://192.168.0.19:3000/bills/all"; // Get
     const [dados, setDados] = useState([]);
     const [editingBill, setEditingBill] = useState(null);
 
     const renderBills = async () => {
-        const data = await getBills(url);
+        const data = await getBills(url);  
 
         if (data) setDados(data)
     }
@@ -58,10 +58,10 @@ const Bill = () => {
                         <div key={index} className="bill-element">
                             <div className="wrap-title-buttons">
                                 <h2>{dado.title}</h2>
-                                <div className="icons-edit-trash">
+                                <div className="container-icons-edit-trash">
 
-                                    <button onClick={() => handleEditClick(dado)}><FontAwesomeIcon icon={faPencil} /></button>
-                                    <button onClick={() => handleClick(dado.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                                    <button onClick={() => handleEditClick(dado)} className="buttons-edit-trash edit"><FontAwesomeIcon icon={faPencil} size="xl" style={{color: "#B197FC"}}/></button>
+                                    <button onClick={() => handleClick(dado.id)} className="buttons-edit-trash trash"><FontAwesomeIcon icon={faTrash}  size="xl" style={{color: "#B197FC"}}/></button>
                                 </div>
 
                             </div>
