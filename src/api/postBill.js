@@ -1,6 +1,6 @@
 const postBill = (bill)=> {
 
-    const url = "http://192.168.0.19:3000/bills/save";
+    const url = "http://192.168.0.19:8080/bills/save";
     try {
         fetch(url, {
             method: 'POST',

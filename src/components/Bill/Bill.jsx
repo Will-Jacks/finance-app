@@ -11,7 +11,7 @@ import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 /* eslint-disable react/prop-types */
 const Bill = () => {
 
-    const url = "http://192.168.0.19:3000/bills/all"; // Get
+    const url = "http://192.168.0.19:8080/bills/all"; // Get
     const [dados, setDados] = useState([]);
     const [editingBill, setEditingBill] = useState(null);
 
