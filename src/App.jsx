@@ -19,7 +19,7 @@ function App() {
       <Header />
       <div className="wrapper-app-align">
         <SumBills />
-        <Bill url={userId}/> {/* Renderiza as Bills */}
+        <Bill url={userId} /> {/* Renderiza as Bills */}
         <button onClick={() => setIsShown(!isShown)} className='icon-fa-plus'>
           <FontAwesomeIcon icon={faPlus} />
         </button>

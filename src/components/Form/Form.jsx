@@ -1,21 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import postBill from "../../api/postBill";
 import './form.css';
+import { LoginContext } from "../../context/LoginContext";
 const Form = () => {
+    const { userId } = useContext(LoginContext);
     const [title, setTitle] = useState('');
     const [value, setValue] = useState(0);
     const [description, setDescription] = useState('');
     const [isPaid, setIsPaid] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const formData = {
             title,
             value,
             description,
             isPaid
         }
-        postBill(formData, 1); // Vai ter que implementar uma lógica que ao logar, o ID do usuário venha pra cá
+        postBill(formData, userId); // Vai ter que implementar uma lógica que ao logar, o ID do usuário venha pra cá
     }
 
     return (

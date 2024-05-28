@@ -25,13 +25,14 @@ const Bill = (props) => {
         renderBills();
     }, []);// PROBLEMA AQUI, QUANDO ADICIONA DADOS COMO DEPENDENCIA DO ARRAY ELE FICA MANDANDO REQUISIÇÕES PRO BACKEND EM LOOP  // Toda vez que houver uma adição ou uma exclusão de uma Bill será refletido na tela
 
-    const handleClick = (id) => {
+    const handleDeleteBill = async(id) => {
         console.log("Excluindo conta de ID: " + id);
-        deleteBill(id);
+        await deleteBill(id);
+        renderBills();
     }
 
     const handleEditClick = (bill) => {
-        setEditingBill(bill);
+        setEditingBill(bill); //Exibe o form oculto
     }
 
     const handleEditChange = (e) => {
@@ -64,7 +65,7 @@ const Bill = (props) => {
                                 <div className="container-icons-edit-trash">
 
                                     <button onClick={() => handleEditClick(dado)} className="buttons-edit-trash edit"><FontAwesomeIcon icon={faPencil} size="xl" style={{color: "#B197FC"}}/></button>
-                                    <button onClick={() => handleClick(dado.id)} className="buttons-edit-trash trash"><FontAwesomeIcon icon={faTrash}  size="xl" style={{color: "#B197FC"}}/></button>
+                                    <button onClick={() => handleDeleteBill(dado.id)} className="buttons-edit-trash trash"><FontAwesomeIcon icon={faTrash}  size="xl" style={{color: "#B197FC"}}/></button>
                                 </div>
 
                             </div>
