@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { LoginContext } from "../../context/LoginContext";
 
 const Login = () => {
+    const { setUserId} = useContext(LoginContext);
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [responseOk, setResponseOk] = useState(false);
-    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,8 +21,10 @@ const Login = () => {
                 body: JSON.stringify({login, password})
             });
             if(response.ok) {
-                setResponseOk(true);
-                console.log(response.ok)
+                const responseData = await response.text();
+                await setUserId(responseData);
+                console.log(responseData);//Quero exibir o retorno aqui
+                setResponseOk(true); // Chama o Navigate do Routes no jsx
             }
         } catch(e) {
             console.error("Erro na requisição" + e);
@@ -32,9 +35,6 @@ const Login = () => {
     return (
         <>
             <h1>Login</h1>
-            {error && (
-                <p>Erro: {error}</p>
-            )}
             {responseOk && (
                 <Navigate to={'/main'} />
             )}

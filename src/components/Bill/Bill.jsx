@@ -9,9 +9,9 @@ import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 /* eslint-disable react/prop-types */
-const Bill = () => {
+const Bill = (props) => {
 
-    const url = "http://192.168.0.19:8080/bills/all"; // Get
+    const url = `http://192.168.0.19:8080/bills/${props.url}`; // Get
     const [dados, setDados] = useState([]);
     const [editingBill, setEditingBill] = useState(null);
 
@@ -40,8 +40,7 @@ const Bill = () => {
             ...editingBill,
             [name]: value,
             user: {
-                id: 1 // O esquema tá aqui. Tenho que alterar aqui pra mudar a Bill do usuário
-                //Obrigatório passar o ID do usuário em questão para mudar a Bill
+                id: props.url // Altera a bill do usuário usando o ID do props
             }
         });
     }
