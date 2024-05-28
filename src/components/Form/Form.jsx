@@ -10,8 +10,7 @@ const Form = () => {
     const [description, setDescription] = useState('');
     const [isPaid, setIsPaid] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         const formData = {
             title,
             value,
