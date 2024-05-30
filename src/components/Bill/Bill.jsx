@@ -6,12 +6,13 @@ import './bill.css';
 import '../Form/form.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { baseUrl } from "../../context/LoginContext";
 
 
 /* eslint-disable react/prop-types */
 const Bill = (props) => {
 
-    const url = `http://192.168.0.19:8080/bills/${props.url}`; // Get
+    const url = `${baseUrl}/bills/${props.url}`; // Get
     const [dados, setDados] = useState([]);
     const [editingBill, setEditingBill] = useState(null);
 
@@ -23,7 +24,7 @@ const Bill = (props) => {
 
     useEffect(() => {
         renderBills();
-    }, []);// PROBLEMA AQUI, QUANDO ADICIONA DADOS COMO DEPENDENCIA DO ARRAY ELE FICA MANDANDO REQUISIÇÕES PRO BACKEND EM LOOP  // Toda vez que houver uma adição ou uma exclusão de uma Bill será refletido na tela
+    }, []);
 
     const handleDeleteBill = async(id) => {
         console.log("Excluindo conta de ID: " + id);

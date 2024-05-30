@@ -1,5 +1,5 @@
 :root {
-    --card-bg-color : #0000003a;
+    --main-bg-color : #0000003a;
 }
 
 .container-bills { 
@@ -18,7 +18,7 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: -1px -1px 7px -3px;
-    background-color: var(--card-bg-color);
+    background-color: var(--main-bg-color);
 }
 
 .wrap-title-buttons {
@@ -34,7 +34,7 @@
 
 .buttons-edit-trash {
     border: none;
-    background-color: var(--card-bg-color);
+    background-color: var(--main-bg-color);
     transition: 0.2s;
 }
 

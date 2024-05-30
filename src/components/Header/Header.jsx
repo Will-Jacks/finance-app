@@ -1,5 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
 
+    const navigate = useNavigate();
+    const handleClick = ()=> {
+        navigate('/');
+    }
     return (
         <>
             <h1 style={
@@ -10,6 +16,7 @@ const Header = () => {
             }>
                 Contas
             </h1>
+            <button onClick={()=> handleClick()}> Sair</button>
         </>
     )
 }

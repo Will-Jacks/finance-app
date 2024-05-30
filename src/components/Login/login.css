@@ -1,0 +1,74 @@
+:root {
+    --main-bg-color : #0000003a;
+    --main-font-color: #FFFFFF;
+    --form-bg-color: #131313;
+    --main-purple-color: #B197FC;
+}
+
+.login-container {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.border-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    border-radius: 10px;
+
+    background-color: var(--form-bg-color);
+}
+
+.form-login-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.wrapper-form-label-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-descripition {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-input {
+    height: 30px;
+    width: 250px;
+}
+
+.btn-submit-login {
+    align-self: center;
+    justify-self: center;
+
+    height: 40px;
+    width: 130px;
+    margin-top: 50px;
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+    font-weight: 400;
+    font-size: small;
+    text-transform: uppercase;
+}
+
+.register {
+    transition: 1s;
+}
+
+.register:hover {
+    cursor: pointer;
+    transform: scale(1.4);
+}
