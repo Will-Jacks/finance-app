@@ -24,6 +24,7 @@ const Bill = (props) => {
 
     useEffect(() => {
         renderBills();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleDeleteBill = async(id) => {
