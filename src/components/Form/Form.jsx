@@ -10,14 +10,19 @@ const Form = () => {
     const [description, setDescription] = useState('');
     const [isPaid, setIsPaid] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const formData = {
             title,
             value,
             description,
             isPaid
         }
-        postBill(formData, userId); // Vai ter que implementar uma lógica que ao logar, o ID do usuário venha pra cá
+
+        const response = await postBill(formData, userId);
+        if(response) {
+            window.location.reload();
+        }// Faz com que o front espere o backend retornar o sucesso da requisição para poder atualizar a página com os dados exibidos na tela
     }
 
     return (
@@ -27,7 +32,13 @@ const Form = () => {
             <form onSubmit={handleSubmit} className="form-container">
                 <div className="field-wrapper">
                     <label htmlFor="">Título</label>
-                    <input type="text" placeholder="Título da sua conta" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input 
+                    type="text" 
+                    placeholder="Título da sua conta" 
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)}
+                    autoCapitalize="words"
+                    />
                 </div>
 
                 <div className="field-wrapper">

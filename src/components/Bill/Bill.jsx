@@ -95,6 +95,7 @@ const Bill = (props) => {
                             name="title"
                             value={editingBill.title}
                             onChange={handleEditChange}
+                            autoCapitalize="sentences"
                         />
                     </div>
 
