@@ -48,13 +48,22 @@ const Login = () => {
                 <form onSubmit={handleSubmit} className="form-login-container">
                     <div className="wrapper-form-label-input">
                         <label className="user-label form-label">Usuário</label>
-                        <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} className="user-input form-input" />
+                        <input
+                            type="text"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                            className="user-input form-input"
+                            autoCapitalize="none"
+                            autoCorrect="off"
+                            spellCheck="false"
+                            inputMode="username"
+                            />
                     </div>
                     <div className="wrapper-form-label-input">
                         <label className="password-label form-label">Senha</label>
                         <input type="password" name="" id="" value={password} onChange={(e) => setPassword(e.target.value)} className="password-input form-input" />
                     </div>
-                    <p>Não possui conta?<a onClick={()=> handleNavigate()} className="register">Cadastre-se</a></p>
+                    <p>Não possui conta?<a onClick={() => handleNavigate()} className="register">Cadastre-se</a></p>
                     <button type="submit" className="btn-submit-login"><strong>Entrar</strong></button>
                 </form>
             </div>
