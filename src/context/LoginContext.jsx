@@ -3,8 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const LoginContext = createContext();
 
-export const baseUrl = "http://192.168.0.11:8080";
-
+export const baseUrl = "http://ec2-3-14-6-66.us-east-2.compute.amazonaws.com:8080";
 export const LoginProvider = ({ children }) => {
     const [userId, setUserId] = useState(() => {
         const data = localStorage.getItem('storage-user-id');
